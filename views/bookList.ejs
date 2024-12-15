@@ -1,0 +1,160 @@
+<%- include('header') %> <!-- Include navigation header -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books List</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: url('/images/library-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .content {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: 40px auto;
+    }
+
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    form input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 200px;
+    }
+
+    form button {
+      padding: 10px 15px;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #1abc9c;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 20px 0;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    li {
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 20px;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    img {
+      display: block;
+      margin-top: 10px;
+      max-width: 100px;
+    }
+
+    /* Link styling */
+    a {
+      color: #1abc9c;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #2c3e50;
+    }
+
+    /* No results message */
+    .no-results {
+      text-align: center;
+      font-size: 18px;
+      color: #2c3e50;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Books Search Results</h1>
+
+    <!-- Single Search Form -->
+    <form method="GET" action="/users/bookList">
+      <input 
+        type="text" 
+        name="q" 
+        placeholder="Search for books..." 
+        value="<%= searchTerm || '' %>">
+      <button type="submit">Search</button>
+    </form>
+
+    <hr>
+
+    <!-- Display Books -->
+    <% if (books && books.length > 0) { %>
+      <ul>
+        <% books.forEach(book => { %>
+          <li>
+            <h3><%= book.volumeInfo.title || "No title available" %></h3>
+            <p><strong>Author(s):</strong> <%= book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "Unknown" %></p>
+            <p><strong>Description:</strong> <%= book.volumeInfo.description || "No description available" %></p>
+            <% if (book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail) { %>
+              <img src="<%= book.volumeInfo.imageLinks.thumbnail %>" alt="Book Cover">
+            <% } %>
+            <hr>
+          </li>
+        <% }); %>
+      </ul>
+    <% } else { %>
+      <p class="no-results">No books found for "<%= searchTerm || 'your search' %>". Try another search!</p>
+    <% } %>
+  </div>
+</body>
+</html>

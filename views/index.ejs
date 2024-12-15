@@ -1,0 +1,102 @@
+<%- include('header') %> <!-- Include navigation header -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    body {
+      font-family: Arial, sans-serif;
+      background: url('/library.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333; /* Dark text */
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #2c3e50; /* Dark blue */
+      text-align: center;
+      margin-bottom: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    p {
+      font-size: 18px;
+      text-align: center;
+      margin: 10px 0;
+      animation: slideUp 1.5s ease-in-out;
+    }
+
+    a {
+      color: #1abc9c; /* Light green */
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    a:hover {
+      color: #2c3e50; /* Dark blue on hover */
+      transform: scale(1.1); /* Slight zoom on hover */
+    }
+
+    /* Content container */
+    .content {
+      text-align: center;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      max-width: 600px; /* Limit width */
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Links container */
+    .links {
+      margin-top: 20px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1><%= title %></h1>
+    <p>The Online Book Library</p>
+    <% if (!user) { %>
+      <!-- Links for Registration and Login -->
+      <div class="links">
+        <p><a href="/users/register">Register Right Here</a></p>
+        <p><a href="/users/login">Log In Here</a></p>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>
