@@ -1,0 +1,126 @@
+<%- include('header') %> <!-- Include navigation header -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issued Books - Book Library</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #2c3e50;
+      color: white;
+    }
+
+    td {
+      background-color: #fff;
+    }
+
+    /* Button styling */
+    .return-button {
+      padding: 8px 15px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .return-button:hover {
+      background-color: #c0392b;
+    }
+
+    /* Links styling */
+    .links {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .links a {
+      color: #1abc9c;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .links a:hover {
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Issued Books</h1>
+
+  <!-- Table to display issued books -->
+  <table>
+    <thead>
+      <tr>
+        <th>Book ID</th>
+        <th>User ID</th>
+        <th>User Name</th>
+        <th>Issued Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (issuedBooks.length === 0) { %>
+        <tr>
+          <td colspan="4" style="text-align: center;">No books have been issued yet.</td>
+        </tr>
+      <% } else { %>
+        <% issuedBooks.forEach(book => { %>
+          <tr>
+            <td><%= book.book_id %></td>
+            <td><%= book.user_id %></td>
+            <td><%= book.name %></td>
+            <td><%= book.issued_date %></td>
+          </tr>
+        <% }) %>
+      <% } %>
+    </tbody>
+  </table>
+
+  <div class="links">
+    <a href="/users/books">Back to Book Catalog</a>
+  </div>
+
+</body>
+</html>

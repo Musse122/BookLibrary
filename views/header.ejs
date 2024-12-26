@@ -1,0 +1,33 @@
+<nav>
+  <div class="left-links">
+    <a href="/">Home</a>
+    <a href="/users/about">About</a>
+    
+    <% if (user) { %>
+    <!-- Links for logged-in users -->
+    <% if (role=='user') { %>
+    <a href="/users/myissuedbooks">My Issued Books</a>
+    <a href="/users/bookcatalog">Book Catalog</a>
+    <a href="/users/bookList">Book List</a>
+    
+    
+    <% } else { %>
+    <a href="/users/addbook">addbook</a>
+    <a href="/users/bookList">Book Catalog</a>
+    <a href="/users/issuedbooks">Issued Books</a>
+    <% } %>
+    <% } %>
+    
+  </div>
+  <div class="right-links">
+    <% if (!user) { %>
+    <!-- Links for non-logged-in users -->
+    <a href="/users/register">Register</a>
+    <a href="/users/login">Login</a>
+    <% } else { %>
+    <!-- Logout link for logged-in users -->
+    <a href="/users/logout">Logout</a>
+    <% } %>
+  </div>
+</nav>
+<hr />

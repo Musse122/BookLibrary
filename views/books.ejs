@@ -1,0 +1,110 @@
+<%- include('header') %> <!-- Include navigation header -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Catalog - Book Library</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4; /* Light gray background */
+      color: #333; /* Dark text */
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #2c3e50;
+      color: white;
+    }
+
+    td {
+      background-color: #fff;
+    }
+
+    /* Links styling */
+    .links {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .links a {
+      color: #1abc9c;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .links a:hover {
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Book Catalog</h1>
+
+  <!-- Table to display books -->
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Published Year</th>
+        <th>ISBN</th>
+        <th>Copies Available</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% books.forEach(book => { %>
+        <tr>
+          <td><%= book.title %></td>
+          <td><%= book.author %></td>
+          <td><%= book.genre %></td>
+          <td><%= book.published_year %></td>
+          <td><%= book.isbn %></td>
+          <td><%= book.copies_available %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <!-- Links to navigate -->
+  <div class="links">
+    <a href="/users/addbook">Add New Book</a>
+  </div>
+</body>
+</html>

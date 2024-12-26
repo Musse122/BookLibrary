@@ -1,0 +1,120 @@
+<%- include('header') %> <!-- Include navigation header -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4; /* Light gray background */
+      color: #333; /* Dark text */
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #2c3e50; /* Dark blue */
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Form Container */
+    .content {
+      max-width: 400px;
+      margin: 50px auto; /* Center the form */
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    form div {
+      margin-bottom: 15px;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    form button {
+      width: 100%;
+      padding: 10px;
+      background: #2c3e50; /* Dark blue button */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #1abc9c; /* Light green on hover */
+    }
+
+    /* Links styling */
+    .links {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .links a {
+      color: #1abc9c; /* Light green */
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .links a:hover {
+      color: #2c3e50; /* Dark blue on hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Register</h1>
+    
+    <!-- Registration Form -->
+    <form action="/users/register" method="POST">
+      <div>
+        <label for="name">name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Register</button>   
+    <!-- Links to Login page -->
+    <div class="links">
+      <p>Already have an account? <a href="/users/login">Login Here</a></p>
+    </div>
+  </div>
+</body>
+</html>
