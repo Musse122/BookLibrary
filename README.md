@@ -85,7 +85,7 @@ CSS: Handles the layout and styling for a responsive, user-friendly interface.
    Receive notifications when loans are due or if a requested book becomes available.
 
 Or Visit my Websites
-[
-](https://musse.uk/)
+
+https://musse.uk/
 or https://booklibrary-ten.vercel.app/
 
