@@ -84,22 +84,8 @@ CSS: Handles the layout and styling for a responsive, user-friendly interface.
    Create an account to keep track of your borrow history and due dates.  
    Receive notifications when loans are due or if a requested book becomes available.
 
-Lauching
-
-1. Fork this repository.  
-2. Create a new branch
-3.  for each feature or bug fix:  
-   ```bash
-   git checkout -b feature/my-new-feature
-   ```
-4. Commit your changes:  
-   ```bash
-   git commit -m "Add a new feature for better book search"
-   ```
-   Push to the branch 
-   ```bash
-   git push origin feature/my-new-feature
-   ```
-Open a Pull Request in this repository.  
-
+Or Visit my Websites
+[
+](https://musse.uk/)
+or https://booklibrary-ten.vercel.app/
 
